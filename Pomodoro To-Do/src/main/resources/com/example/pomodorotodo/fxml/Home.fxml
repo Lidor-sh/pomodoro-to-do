@@ -5,14 +5,33 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="549.0" prefWidth="931.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="549.0" prefWidth="931.0">
          <left>
-            <VBox prefHeight="549.0" prefWidth="218.0" style="-fx-background-color: #c25c5c;" BorderPane.alignment="CENTER">
+            <VBox prefHeight="491.0" prefWidth="144.0" style="-fx-background-color: #c25c5c;" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="220.0" style="-fx-background-color: #c25c5c;" styleClass=":ho" text="Button" textFill="WHITE" />
+                  <Button graphicTextGap="1.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="220.0" stylesheets="@../css/style.css" text="Today" textFill="WHITE">
+                     <font>
+                        <Font name="Bauhaus 93" size="12.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="220.0" stylesheets="@../css/style.css" text="Tommorow" textFill="WHITE">
+                     <font>
+                        <Font name="Bauhaus 93" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="220.0" stylesheets="@../css/style.css" text="Upcoming" textFill="WHITE">
+                     <font>
+                        <Font name="Bauhaus 93" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="220.0" stylesheets="@../css/style.css" text="Someday" textFill="WHITE">
+                     <font>
+                        <Font name="Bauhaus 93" size="12.0" />
+                     </font>
+                  </Button>
                </children>
             </VBox>
          </left>
