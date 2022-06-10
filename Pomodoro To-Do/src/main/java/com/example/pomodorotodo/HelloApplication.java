@@ -10,7 +10,8 @@ import java.io.IOException;
 
 public class HelloApplication extends Application {
 
-    double x, y = 0;
+    private double x, y = 0;
+    private boolean resizebottom = false;
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("fxml/Home.fxml"));
@@ -19,12 +20,27 @@ public class HelloApplication extends Application {
         stage.initStyle(StageStyle.UNDECORATED);
 
         scene.setOnMousePressed(evt -> {
-            x = evt.getSceneX();
-            y = evt.getSceneY();
+            if (evt.getX() > stage.getWidth() - 10
+                    && evt.getX() < stage.getWidth() + 10
+                    && evt.getY() > stage.getHeight() - 10
+                    && evt.getY() < stage.getHeight() + 10) {
+                resizebottom = true;
+                x = stage.getWidth() - evt.getX();
+                y = stage.getHeight() - evt.getY();
+            } else {
+                resizebottom = false;
+                x = evt.getSceneX();
+                y = evt.getSceneY();
+            }
         });
         scene.setOnMouseDragged(evt -> {
-            stage.setX(evt.getScreenX() - x);
-            stage.setY(evt.getScreenY() - y);
+            if(resizebottom){
+                stage.setWidth(evt.getX() + x);
+                stage.setHeight(evt.getY() + y);
+            }else {
+                stage.setX(evt.getScreenX() - x);
+                stage.setY(evt.getScreenY() - y);
+            }
         });
 
         stage.setScene(scene);
