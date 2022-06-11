@@ -1,33 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="549.0" prefWidth="931.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pomodorotodo.controllers.HelloController">
+<AnchorPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pomodorotodo.controllers.HelloController">
    <children>
       <BorderPane prefHeight="549.0" prefWidth="931.0">
          <left>
             <VBox prefHeight="491.0" prefWidth="144.0" style="-fx-background-color: #c25c5c;" BorderPane.alignment="CENTER">
                <children>
-                  <Button graphicTextGap="1.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="220.0" stylesheets="@../css/style.css" text="Today" textFill="WHITE">
+                  <Button fx:id="todayBtn" graphicTextGap="1.0" mnemonicParsing="false" onAction="#onTodayButtonClick" prefHeight="48.0" prefWidth="220.0" stylesheets="@../css/style.css" text="Today" textFill="WHITE">
                      <font>
                         <Font name="Bauhaus 93" size="12.0" />
                      </font></Button>
-                  <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="220.0" stylesheets="@../css/style.css" text="Tommorow" textFill="WHITE">
+                  <Button fx:id="tomorrowBtn" mnemonicParsing="false" onAction="#onTomorrowButtonClick" prefHeight="48.0" prefWidth="220.0" stylesheets="@../css/style.css" text="Tommorow" textFill="WHITE">
                      <font>
                         <Font name="Bauhaus 93" size="12.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="220.0" stylesheets="@../css/style.css" text="Upcoming" textFill="WHITE">
+                  <Button fx:id="upcomingBtn" mnemonicParsing="false" onAction="#onUpcomingButtonClick" prefHeight="48.0" prefWidth="220.0" stylesheets="@../css/style.css" text="Upcoming" textFill="WHITE">
                      <font>
                         <Font name="Bauhaus 93" size="12.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="220.0" stylesheets="@../css/style.css" text="Someday" textFill="WHITE">
+                  <Button fx:id="somedayBtn" mnemonicParsing="false" onAction="#onSomedayButtonClick" prefHeight="48.0" prefWidth="220.0" stylesheets="@../css/style.css" text="Someday" textFill="WHITE">
                      <font>
                         <Font name="Bauhaus 93" size="12.0" />
                      </font>
@@ -38,12 +40,37 @@
          <top>
             <HBox alignment="TOP_RIGHT" prefHeight="58.0" prefWidth="931.0" style="-fx-background-color: #8f4343;" BorderPane.alignment="CENTER">
                <children>
+                  <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onMiniButtonClick" prefHeight="24.0" prefWidth="23.0" style="-fx-background-color: #8f4343;" textFill="WHITE">
+                     <font>
+                        <Font name="Franklin Gothic Heavy" size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/icons8-subtract-25.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onMaxButtonClick" prefHeight="24.0" prefWidth="23.0" style="-fx-background-color: #8f4343;" textFill="WHITE">
+                     <font>
+                        <Font name="Franklin Gothic Heavy" size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/icons8-enlarge-25.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                   <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onExitButtonClick" prefHeight="25.0" prefWidth="31.0" style="-fx-background-color: #8f4343;" text="X" textFill="WHITE">
                      <font>
                         <Font name="Franklin Gothic Heavy" size="13.0" />
                      </font>
                   </Button>
-               </children></HBox>
+               </children>
+            </HBox>
          </top>
       </BorderPane>
    </children>

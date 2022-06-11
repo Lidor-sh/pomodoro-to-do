@@ -2,6 +2,7 @@ package com.example.pomodorotodo;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -19,6 +20,19 @@ public class HelloApplication extends Application {
         stage.setTitle("Pomodoro To-Do");
         stage.initStyle(StageStyle.UNDECORATED);
 
+        Vars.focused = Vars.Category.Today;
+
+        scene.setOnMouseMoved(evt -> {
+            if (evt.getX() > stage.getWidth() - 10
+                    && evt.getX() < stage.getWidth() + 10
+                    && evt.getY() > stage.getHeight() - 10
+                    && evt.getY() < stage.getHeight() + 10) {
+                scene.setCursor(Cursor.SE_RESIZE);
+            }else{
+                scene.setCursor(Cursor.DEFAULT);
+            }
+        });
+
         scene.setOnMousePressed(evt -> {
             if (evt.getX() > stage.getWidth() - 10
                     && evt.getX() < stage.getWidth() + 10
@@ -33,10 +47,11 @@ public class HelloApplication extends Application {
                 y = evt.getSceneY();
             }
         });
+
         scene.setOnMouseDragged(evt -> {
             if(resizebottom){
-                stage.setWidth(evt.getX() + x);
-                stage.setHeight(evt.getY() + y);
+                stage.setWidth(Math.max(evt.getX() + x, 931));
+                stage.setHeight(Math.max(evt.getY() + y, 549));
             }else {
                 stage.setX(evt.getScreenX() - x);
                 stage.setY(evt.getScreenY() - y);
